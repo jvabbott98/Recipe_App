@@ -19,7 +19,7 @@ class RecipeModelTests(TestCase):
 
     def test_cooking_time_positive(self):
         recipe = Recipe.objects.create(name="Tea", cooking_time = -10)
-        self.assertLess(recipe.cooking_time, 0)  # This should fail or raise an error
+        self.assertLess(recipe.cooking_time, 0)  
 
 
 
