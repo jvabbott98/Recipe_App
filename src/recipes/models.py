@@ -7,3 +7,6 @@ class Recipe(models.Model):
     cooking_time = models.IntegerField(help_text='In minutes')
 
     ingredients = models.ManyToManyField(Ingredient)
+
+    def __str__(self):
+        return str(self.name)
