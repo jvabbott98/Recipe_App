@@ -1,46 +1,12 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Recipe Haven</title>
-    <link rel="stylesheet" href="styles.css"> 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
-        }
-        h1 {
-            margin: 0;
-        }
-        nav {
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #4CAF50;
-            font-weight: bold;
-        }
-        .content {
-            max-width: 600px;
-            margin: auto;
-            text-align: center;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #777;
-        }
-    </style>
+    <link rel="stylesheet" type ="text/css" href="{% static 'css/style.css' %}"> 
 </head>
 <body>
 
