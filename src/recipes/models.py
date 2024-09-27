@@ -1,9 +1,12 @@
 from django.db import models
 from ingredients.models import Ingredient
+from authors.models import Author
+from cuisines.models import Cuisine
 
 class Recipe(models.Model):
     name = models.CharField(max_length=120)
-    author = models.CharField(max_length=120)
+
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     cooking_time = models.IntegerField(help_text='In minutes')
 
@@ -11,7 +14,7 @@ class Recipe(models.Model):
     directions = models.TextField(default='No directions....')
 
     ingredients = models.ManyToManyField(Ingredient)
-
+    cuisine = models.ManyToManyField(Cuisine)
     
 
     
