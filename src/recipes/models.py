@@ -8,6 +8,7 @@ from django.dispatch import receiver
 class Recipe(models.Model):
     name = models.CharField(max_length=120)
 
+    # Create one-to-one relationship with the Author model
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, blank=True)
 
     cooking_time = models.IntegerField(help_text='In minutes')
@@ -15,6 +16,7 @@ class Recipe(models.Model):
     description = models.TextField(default='No description...')
     directions = models.TextField(default='No directions....')
 
+    # Allows recipe to contain multiple ingredients and cuisine types.
     ingredients = models.ManyToManyField(Ingredient, related_name='ingredients')
     cuisine = models.ManyToManyField(Cuisine, related_name='cuisine')
 
@@ -23,7 +25,7 @@ class Recipe(models.Model):
 
     
 
-
+    # Calculates difficulty based on cooking time and number of ingredients.
     def calculate_difficulty(self):
         ingredient_count = self.ingredients.count()
         if self.cooking_time < 10:
@@ -40,6 +42,7 @@ class Recipe(models.Model):
     def __str__(self):
         return str(self.name)
 
+# Calculates and sets the difficulty upon saving a recipe's information
 @receiver(post_save, sender=Recipe)
 def set_difficulty(sender, instance, created, **kwargs):
     if created:  
