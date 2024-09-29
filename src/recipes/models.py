@@ -8,5 +8,7 @@ class Recipe(models.Model):
 
     ingredients = models.ManyToManyField(Ingredient)
 
+    pic = models.ImageField(upload_to='books', default='no_picture.jpg')
+
     def __str__(self):
         return str(self.name)
