@@ -1,25 +1,41 @@
+<!-- Extends base.html located in src/templates/base.html -->
 
+{% extends 'base.html' %} 
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Recipe Haven</title>
-    <link rel="stylesheet" type ="text/css" href="{% static 'css/style.css' %}"> 
-</head>
-<body>
 
-<header>
-    <h1>Welcome to the Recipes App</h1>
-</header>
+{% block title %}
+    Home - The Recipe App
+{% endblock %}
 
+{% block content %}
+<!-- Basic recipe cards created with bootstrap -->
+    <div class="container">
+        <h2 class="my-4">Welcome to The Recipe App</h2>
+        <p>Create and store your recipes here.</p>
 
-<div class="content">
-    <h2>Create and browse a list of recipes.</h2>
-    <p>Save information like ingredients and cooking time. </p>
-    <p>Search for recipes by ingredients.</p>
-</div>
-
-</body>
-</html>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Recipe 1</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Recipe 2</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Recipe 3</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
