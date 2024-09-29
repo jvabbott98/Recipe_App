@@ -4,13 +4,19 @@ body {
     margin: 0;
     padding: 20px;
 }
-header {
+/* header {
     text-align: center;
-    background-color: #4CAF50;
+    background-color: #f8b400;
     color: white;
-    padding: 10px 0;
-}
+    padding: 20px 0;
+} */
+
+
+
 h1 {
+    color: #ffffff;
+    font-family: 'Arial', sans-serif; 
+    font-size: 36px;
     margin: 0;
 }
 nav {
@@ -27,8 +33,20 @@ nav a {
     margin: auto;
     text-align: center;
 }
-footer {
+
+
+/* footer {
+    background-color: #333333;
+    padding: 10px; 
     text-align: center;
     margin-top: 40px;
-    color: #777;
+    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} */
+
+p {
+    margin: 0; 
+    font-family: 'Arial', sans-serif;
 }

@@ -3,3 +3,15 @@
 
 # Database
 *.sqlite3
+
+# Ignore SQLite database
+# src/db.sqlite3
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
+
+
+
+
+
