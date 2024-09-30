@@ -21,4 +21,4 @@ class RecipeModelTests(TestCase):
         recipe = Recipe.objects.create(name="Tea", cooking_time = -10)
         self.assertLess(recipe.cooking_time, 0)  
 
-=
+
