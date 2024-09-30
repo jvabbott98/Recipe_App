@@ -4,6 +4,8 @@ from authors.models import Author
 from cuisines.models import Cuisine
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.shortcuts import reverse
+
 
 class Recipe(models.Model):
     name = models.CharField(max_length=120)
@@ -39,7 +41,10 @@ class Recipe(models.Model):
             else:
                 return 'Hard'
 
-    pic = models.ImageField(upload_to='books', default='no_picture.jpg')
+    pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
+
+    def get_absolute_url(self):
+        return reverse ('recipes:detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return str(self.name)
