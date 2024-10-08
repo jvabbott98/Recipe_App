@@ -44,7 +44,7 @@ class Recipe(models.Model):
     pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
 
     def get_absolute_url(self):
-        return reverse ('recipes:detail', kwargs={'pk': self.pk})
+        return reverse('recipes:recipe_detail', kwargs={'id': self.pk})
 
     def __str__(self):
         return str(self.name)

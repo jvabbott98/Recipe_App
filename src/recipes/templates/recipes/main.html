@@ -17,9 +17,8 @@
                 {% for object in object_list %}
                 <tr>
                     <td>
-                        <a href="{{ object.get_absolute_url }}" class="text-decoration-none">
-                            {{ object.name }}
-                        </a>
+  
+                        <a href = "{% url 'recipes:recipe_detail' object.id %}">View Recipe</a>
                     </td>
                     <td>
                         <img src="{{ object.pic.url }}" class="img-fluid rounded" alt="Image of {{ object.name }}" width="150" height="200" />
