@@ -1,13 +1,29 @@
-<h1>Login</h1>    
+{% extends 'base.html' %}
 
-{% if error_message %}
-   {{error_message}}
-{% endif %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Login</h1>
 
-<form action="" method="POST" >
-   {% csrf_token %}   
+            {% if error_message %}
+            <div class="alert alert-danger" role="alert">
+                {{ error_message }}
+            </div>
+            {% endif %}
 
-   {{form}}           
-   
-   <button type="submit" >Login</button>
-</form>
+            <form action="" method="POST" class="border p-4 rounded shadow-sm bg-light">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
