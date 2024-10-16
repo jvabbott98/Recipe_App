@@ -1,1 +1,0 @@
-<p>This allows users to create and store Recipes. Recipes are created from Model Recipe that contains name, cooking_time, and igredients. Ingredient also has its own model and has a many to many relationship with the Recipe model.<p>
