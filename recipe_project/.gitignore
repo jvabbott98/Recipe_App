@@ -5,7 +5,7 @@
 *.sqlite3
 
 # Ignore SQLite database
-# src/db.sqlite3
+# recipe_project/db.sqlite3
 
 # Ignore Python bytecode files
 __pycache__/
