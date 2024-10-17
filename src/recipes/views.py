@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.decorators import login_required
-from .forms import IngredientSearchForm, ChartChoices
+from .forms import IngredientSearchForm, DataVisualization
 from .models import Ingredient, Recipe
 import pandas as pd
 from .utils import get_chart
@@ -49,18 +49,22 @@ def recipe_list(request):
 
 @login_required
 def visualization(request):
-    form = ChartChoices() 
+    form = DataVisualization() 
     recipes_df = None
     chart = None
     qs = Recipe.objects.annotate(number_of_ingredients=Count('ingredients'))
     object_list = qs
 
     if request.method == 'POST':
-        form = ChartChoices(request.POST)
+        form = DataVisualization(request.POST)
 
         if form.is_valid():
             chart_type = form.cleaned_data['chart_type']
-            recipes_df = pd.DataFrame(qs.values('name', 'cooking_time', 'difficulty', 'number_of_ingredients'))
+            ingredient_name = request.POST.get('ingredient_name')
+            qs = qs.filter(ingredients__name__icontains=ingredient_name)
+            object_list = qs
+
+            recipes_df = pd.DataFrame(object_list.values('name', 'cooking_time', 'difficulty', 'number_of_ingredients'))
 
             if not recipes_df.empty:
                 difficulty_counts = recipes_df['difficulty'].value_counts().to_list()
