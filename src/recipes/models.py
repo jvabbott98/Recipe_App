@@ -43,6 +43,10 @@ class Recipe(models.Model):
 
     pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
 
+    def save(self, *args, **kwargs):
+        self.difficulty = self.calculate_difficulty()
+        super().save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse('recipes:recipe_detail', kwargs={'id': self.pk})
 
