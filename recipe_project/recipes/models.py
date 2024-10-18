@@ -43,9 +43,8 @@ class Recipe(models.Model):
 
     pic = models.ImageField(upload_to='recipes', default='no_picture.jpg')
 
-    def save(self, *args, **kwargs):
-        self.difficulty = self.calculate_difficulty()
-        super().save(*args, **kwargs)
+
+
 
     def get_absolute_url(self):
         return reverse('recipes:recipe_detail', kwargs={'id': self.pk})
@@ -53,9 +52,7 @@ class Recipe(models.Model):
     def __str__(self):
         return str(self.name)
 
-# Calculates and sets the difficulty upon saving a recipe's information
-@receiver(post_save, sender=Recipe)
-def set_difficulty(sender, instance, created, **kwargs):
-    if created:  
-        instance.difficulty = instance.calculate_difficulty()
-        instance.save(update_fields=['difficulty']) 
+def save(self, *args, **kwargs):
+        self.difficulty = self.calculate_difficulty()
+        super().save(*args, **kwargs)
+

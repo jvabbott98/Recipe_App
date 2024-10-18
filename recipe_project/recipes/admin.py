@@ -3,5 +3,4 @@ from .models import Recipe, Ingredient
 
 
 
-
 admin.site.register(Recipe)
